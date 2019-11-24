@@ -42,6 +42,16 @@ void ofApp::draw() {
                     xCenter - d2, yCenter + d1/2);
     d1 /= 2;
   }
+  if(ofGetFrameNum() < 80)
+  {
+    img.grabScreen(0, 0 , ofGetWidth(), ofGetHeight());
+    std::stringstream strm;
+    strm << "screenshot" << (10000 + ofGetFrameNum()) << ".png";
+    img.save(strm.str());
+  }
+  //https://openframeworks.cc/learning/02_graphics/how_to_screenshot/
+  // https://hamelot.io/visualization/using-ffmpeg-to-convert-a-set-of-images-into-a-video/
+  // ffmpeg -r 60 -f image2 -s 720x720 -i screenshot100%02d.png -vcodec libx264 -crf 25 -filter_complex "loop=loop=5:size=80:start=0" -pix_fmt yuv420p test.mp4
 }
 
 float ofApp::calcDistance()

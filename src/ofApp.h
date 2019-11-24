@@ -23,5 +23,5 @@ class ofApp : public ofBaseApp{
 
 private:
 	float calcDistance();
-
+	ofImage     img;
 };
